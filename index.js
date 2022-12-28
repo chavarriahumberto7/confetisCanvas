@@ -60,25 +60,23 @@ const initializeValues = () => {
     canvas.height = ch
 
     console.log('rezising')
-
 }
 
 const update = () => {
     if (confetis.length < conteoConfeti) {
-        let confeti = new Confeti(Math.floor(Math.random() * cw), -50)
+        const confeti = new Confeti(Math.floor(Math.random() * cw), -50)
         confeti.draw()
         confetis.push(confeti)
     }
 
     ctx.clearRect(0, 0, cw, ch)
 
-    let result = confetis.map(confeti => confeti.draw())
+    const result = confetis.map(confeti => confeti.draw())
 
     requestAnimationFrame(update)
     frame++
 }
 
 update()
-
 
 window.addEventListener('resize', initializeValues)
